@@ -1,0 +1,5 @@
+variable,R1_median,R1_p_vs_phi,R1_p_vs_delta,R2_median,R2_p_vs_phi,R2_p_vs_delta,in_phi_band
+pelvic_z_vertical,1.41,0.031,<0.001,1.26,0.001,<0.001,yes
+hip_flexion_peak,0.84,<0.001,<0.001,0.93,<0.001,<0.001,no
+knee_flexion_peak,0.56,<0.001,<0.001,1.14,0.002,<0.001,no
+step_length,0.97,<0.001,<0.001,1.31,<0.001,<0.001,no
