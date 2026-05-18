@@ -1,0 +1,9 @@
+statistic,R1_slow_to_comfortable,R2_comfortable_to_fast
+median,1.409,1.256
+geometric_mean,1.380,1.183
+IQR_lower,1.212,0.927
+IQR_upper,1.757,1.625
+wilcoxon_p_vs_phi,0.031,0.001
+wilcoxon_p_vs_delta,<0.0001,<0.0001
+n,29,29
+note,"Per-subject variance values reproducible from Riglet 2024 figshare archive via 02_walking_pipeline.py","Per-subject variance values reproducible from Riglet 2024 figshare archive via 02_walking_pipeline.py"
