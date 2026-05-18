@@ -1,0 +1,21 @@
+# Pinned Python dependencies for full reproducibility.
+# Python 3.9 or higher required.
+#
+# Install with: pip install -r requirements.txt
+
+numpy>=1.24,<2.0
+pandas>=2.0,<3.0
+scipy>=1.10,<2.0
+statsmodels>=0.14,<1.0
+matplotlib>=3.7,<4.0
+
+# Notebook environment (optional but recommended)
+jupyter>=1.0
+jupyterlab>=4.0
+ipywidgets>=8.0
+
+# Plotting and visualization
+seaborn>=0.13
+
+# File handling
+openpyxl>=3.1
