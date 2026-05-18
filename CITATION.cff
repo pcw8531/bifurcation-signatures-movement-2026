@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+title: "bifurcation-signatures-movement-2026: Reproducibility package for Convergent bifurcation signatures in human movement"
+message: >-
+  If you use this software or data, please cite both the software (Zenodo DOI
+  below once assigned) and the associated manuscript.
+type: software
+authors:
+  - given-names: Chulwook
+    family-names: Park
+    affiliation: Institute of Sport Science, Seoul National University
+    orcid: "https://orcid.org/[ORCID to be added]"
+repository-code: "https://github.com/pcw8531/bifurcation-signatures-movement-2026"
+url: "https://github.com/pcw8531/bifurcation-signatures-movement-2026"
+abstract: >-
+  Reproducibility package containing analysis pipelines and processed
+  per-subject data tables for a systemic variance-modulation analysis of
+  bifurcation-precursor signatures across locomotion, perceptual expertise,
+  and elementary coordination. The package reproduces all numerical
+  results reported in Section 2 of the associated manuscript across four
+  independent published datasets.
+keywords:
+  - bifurcation theory
+  - motor control
+  - locomotion biomechanics
+  - perceptual expertise
+  - bimanual coordination
+  - logistic map
+  - early-warning signals
+  - dynamical systems
+license: MIT
+license-url: "https://opensource.org/licenses/MIT"
+version: "1.0.0"
+date-released: "2026-05-18"
+preferred-citation:
+  type: article
+  title: "Convergent bifurcation signatures in human movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise"
+  authors:
+    - given-names: Chulwook
+      family-names: Park
+      affiliation: Institute of Sport Science, Seoul National University
+  year: 2026
+  journal: "[Journal name to be added]"
+  doi: "[DOI to be added]"
