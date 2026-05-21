@@ -4,11 +4,11 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-Data and code for: **Convergent bifurcation signatures in human movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise**
+Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise**
 
 ## Overview
 
-This repository contains the complete reproducibility package for the manuscript. It applies a systemic variance-modulation analysis to four publicly available datasets that cover three categories of human movement, and tests whether a bifurcation-precursor signature appears as a shared pattern across categories.
+This repository contains the complete reproducibility package for the manuscript. It applies a systemic variance-modulation analysis to four publicly available datasets that cover three categories of movement, and tests whether a bifurcation-precursor signature appears as a shared pattern across categories.
 
 - **Locomotion (running, n = 28)**: consecutive-speed variance ratios tested against the golden ratio φ and the Feigenbaum constant δ.
 - **Locomotion (walking, n = 29)**: same procedure on an independent walking dataset.
@@ -114,7 +114,7 @@ If you use this code or data, please cite the manuscript and this repository.
 ```bibtex
 @article{park2026bifurcation,
   author  = {Park, Chulwook},
-  title   = {Convergent bifurcation signatures in human movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise},
+  title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise},
   year    = {2026},
   journal = {[Journal Name]},
   doi     = {[DOI]}
