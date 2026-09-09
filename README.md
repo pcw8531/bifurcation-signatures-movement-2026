@@ -122,7 +122,7 @@ If you use this code or data, please cite the manuscript and this repository.
   author  = {Park, Chulwook},
   title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination},
   year    = {2026},
-  note    = {manuscript under review},,
+  note    = {manuscript under review},
   doi     = {[DOI on publication]}
 }
 
