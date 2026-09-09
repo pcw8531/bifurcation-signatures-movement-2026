@@ -3,10 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22671622.svg)](https://doi.org/10.5281/zenodo.22671622)
 
 Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination**
 
-Revised reproducibility package, September 2026. Archived release: Zenodo DOI to be inserted after the v1.1.0 release.
+Revised reproducibility package, September 2026. Archived release v1.1.1 at Zenodo: [10.5281/zenodo.22671622](https://doi.org/10.5281/zenodo.22671622).
 
 ## Overview
 
@@ -131,8 +132,8 @@ If you use this code or data, please cite the manuscript and this repository.
   title     = {bifurcation-signatures-movement-2026: Reproducibility package},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {1.1.0},
-  doi       = {[Zenodo DOI, inserted after the v1.1.0 release]},
+  version   = {1.1.1},
+  doi       = {10.5281/zenodo.22671622},
   url       = {https://github.com/pcw8531/bifurcation-signatures-movement-2026}
 }
 ```
