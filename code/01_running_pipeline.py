@@ -8,16 +8,18 @@ running dataset (Fukuchi et al. 2017, PeerJ, figshare 10.6084/m9.figshare.454343
 
 The state variable is the antisymmetric pelvic-obliquity signal
     x(t) = L.ASIS_Y(t) - R.ASIS_Y(t)
-(Equation 8 of main manuscript). Consecutive variance ratios
+(Equation 11 of the main manuscript), with the cycle-bracketed variance of
+Equation 8. Consecutive variance ratios
     R1 = var(3.5) / var(2.5)
     R2 = var(4.5) / var(3.5)
 (Equation 9) are tested at the population level against three reference scales
 under the Wilcoxon signed-rank test on log-ratios (Equation 10):
     null R = 1, R = phi ~ 1.618, R = delta ~ 4.669.
 
-Expected output:
+Expected output (recomputed from data/running_per_subject.csv):
     R1 median = 1.623, vs phi p = 0.295, vs delta p < 0.0001
-    R2 median = 1.546, vs phi p = 0.022, vs delta p < 0.0001
+    R2 median = 1.546, vs phi p = 0.020 (0.022 with phi rounded to 1.618,
+    the value used in the manuscript), vs delta p < 0.0001
 """
 import numpy as np
 import pandas as pd

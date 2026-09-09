@@ -3,21 +3,34 @@
 
 Reproduces Section 2.3 of the manuscript and Section S5 of the SI.
 
-Elementary-coordination analysis on the bimanual-pendulum dataset (Park 2026 JRSI).
+Elementary-coordination analysis on the bimanual-pendulum dataset (Park 2026 JRSI,
+reference [26] of the manuscript; Zenodo doi:10.5281/zenodo.19201270).
 
-Computes per-participant Shannon entropy H(phi) (Equation 13) across four
+Computes per-participant Shannon entropy H(phi) (Equation 15) across four
 circadian phases for Group 1 (Experiment I, n = 8) and 2 x 2 repeated-measures
-ANOVA (Equation 14) with simple-effects decomposition (Equation 15) under
+ANOVA (Equation 16) with simple-effects decomposition (Equation 17) under
 heat and cold perturbation for Group 2 (Experiments II and III, n = 8).
 
-Expected output:
+Expected output, recomputed from the shipped per-participant tables
+(data/coordination_*.csv, one value per participant and cell):
     Baseline circadian H means:
         05:00 = 5.246, 12:00 = 5.010, 17:00 = 4.544, 00:00 = 5.200
+    Simple-effect magnitudes (z-units):
+        heat 05:00 +0.154, cold 05:00 +0.203, heat 17:00 -0.645, cold 17:00 -0.668
+    Paired t on the per-participant cell values: baseline 05:00 vs 17:00
+        t(7) = 2.01, p = 0.084; heat 17:00 t(7) = -1.96, p = 0.091;
+        cold 17:00 t(7) = -2.09, p = 0.076
+Values reported in the manuscript are those of the source publication [26],
+computed there on the trial-level data (six trials per participant and
+cell, not shipped here):
     Heat ANOVA:  F(1,7) circadian = 8.234, p = 0.024
     Cold ANOVA:  F(1,7) circadian = 9.123, p = 0.019
     Simple effects at 17:00 (stable phase):
         Heat: t(7) = 3.12, p = 0.017, d = 1.10
         Cold: t(7) = 3.45, p = 0.011, d = 1.22
+The group means and simple-effect magnitudes reproduce exactly; the
+inferential statistics depend on the trial-level variance and are printed
+below as reported values.
 """
 import numpy as np
 import pandas as pd
@@ -34,7 +47,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
 def shannon_entropy_phi(phi, n_bins=20):
-    """Shannon entropy of relative-phase distribution (Equation 13).
+    """Shannon entropy of relative-phase distribution (Equation 15).
     Bins span [-pi, pi]."""
     counts, _ = np.histogram(phi, bins=n_bins, range=(-np.pi, np.pi))
     p = counts / counts.sum()
@@ -80,16 +93,19 @@ if __name__ == "__main__":
         print("\nHeat ANOVA:")
         print(heat_anova.anova_table)
     else:
-        print("\n(statsmodels not installed; ANOVA expected results from Park 2026:)")
+        print("\n(statsmodels not installed; ANOVA as reported in the source publication [26],")
+        print(" computed on trial-level data:)")
         print("  F(1,7) circadian = 8.234, p = 0.024, eta_p^2 = 0.54")
         print("  F(1,7) perturb   = 1.301, p = 0.291, eta_p^2 = 0.16")
         print("  F(1,7) interact  = 3.453, p = 0.068, eta_p^2 = 0.33")
 
-    # Simple effects at 17:00 under heat (Equation 15)
+    # Simple effects at 17:00 under heat (Equation 17)
     t_h17, p_h17 = stats.ttest_rel(heat["heat_1700"], heat["normal_1700"])
     delta_h17 = heat["heat_1700"].mean() - heat["normal_1700"].mean()
     print(f"\nHeat simple effect at 17:00: delta = {delta_h17:+.3f}, "
           f"t({len(heat) - 1}) = {t_h17:.2f}, p = {p_h17:.3f}")
+    print("  (paired t on per-participant cell values; reported in [26] on trial-level")
+    print("   data: t(7) = 3.12, p = 0.017, d = 1.10)")
 
     # === Experiment III: cold perturbation ===
     cold = pd.read_csv(DATA_DIR / "coordination_cold.csv")
@@ -103,7 +119,7 @@ if __name__ == "__main__":
         print("\nCold ANOVA:")
         print(cold_anova.anova_table)
     else:
-        print("\n(Expected from Park 2026:)")
+        print("\n(ANOVA as reported in the source publication [26], trial-level data:)")
         print("  F(1,7) circadian = 9.123, p = 0.019, eta_p^2 = 0.57")
         print("  F(1,7) perturb   = 1.211, p = 0.307, eta_p^2 = 0.15")
         print("  F(1,7) interact  = 4.264, p = 0.043, eta_p^2 = 0.38")
@@ -112,6 +128,8 @@ if __name__ == "__main__":
     delta_c17 = cold["cold_1700"].mean() - cold["normal_1700"].mean()
     print(f"\nCold simple effect at 17:00: delta = {delta_c17:+.3f}, "
           f"t({len(cold) - 1}) = {t_c17:.2f}, p = {p_c17:.3f}")
+    print("  (paired t on per-participant cell values; reported in [26] on trial-level")
+    print("   data: t(7) = 3.45, p = 0.011, d = 1.22)")
 
     print("\nBoth perturbations suppress entropy at 17:00 (stable phase) and amplify")
     print("at 05:00 (unstable phase), the bifurcation-precursor signature.")

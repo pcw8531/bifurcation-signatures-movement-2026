@@ -11,9 +11,9 @@ gait cycle, bracketed left-foot-strike to left-foot-strike. Consecutive
 variance ratios (Equation 9) are tested at the population level under the
 Wilcoxon signed-rank test (Equation 10) against R = 1, phi, delta.
 
-Expected output:
-    R1 median = 1.409, vs phi p = 0.031, vs delta p < 0.0001
-    R2 median = 1.256, vs phi p = 0.001, vs delta p < 0.0001
+Expected output (recomputed from data/walking_per_subject_values.csv, n = 29):
+    R1 median = 1.409, geometric mean = 1.380, vs phi p = 0.031, vs delta p < 0.0001
+    R2 median = 1.256, geometric mean = 1.183, vs phi p = 0.001, vs delta p < 0.0001
 """
 import numpy as np
 import pandas as pd
@@ -22,6 +22,7 @@ from scipy.stats import wilcoxon
 
 DATA2 = Path("./riglet_archive")
 PROCESSED = Path(__file__).resolve().parent.parent / "data" / "walking_per_subject.csv"
+PER_SUBJECT = Path(__file__).resolve().parent.parent / "data" / "walking_per_subject_values.csv"
 
 PHI = (1 + np.sqrt(5)) / 2
 DELTA = 4.6692016091029
@@ -147,6 +148,11 @@ if __name__ == "__main__":
     if DATA2.exists():
         print(f"Running from raw archive at {DATA2}")
         df = run_from_raw(DATA2)
+        R1 = df["R1"].dropna().values
+        R2 = df["R2"].dropna().values
+    elif PER_SUBJECT.exists():
+        print(f"Loading per-subject table from {PER_SUBJECT}")
+        df = pd.read_csv(PER_SUBJECT)
         R1 = df["R1"].dropna().values
         R2 = df["R2"].dropna().values
     else:
