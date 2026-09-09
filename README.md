@@ -52,10 +52,8 @@ bifurcation-signatures-movement-2026/
 │   ├── coordination_cold.csv          SI Table S6 (Group 2, n = 8)
 │   └── walking_sensitivity.csv        SI Table S7
 │
-└── figures/                           figure generation
-    ├── README.md                      figure documentation
-    ├── Figures_R1.ipynb               every panel of Figures 1 to 7, one panel per cell
-    ├── figure_assets_R1/              schematic elements (600 dpi) used by the notebook
+└── figures/                           figure documentation
+    ├── README.md                      figures are provided with the manuscript; data sources in data/README.md
     └── fig_damped_simulation.png      supplementary figure written by 05_damped_simulation.py
 ```
 
@@ -114,10 +112,6 @@ For a single end-to-end run, open `notebooks/00_master_replication.ipynb` in Jup
 - `05_damped_simulation.py`: γ mapping for the four locomotion ratios under κ = 1, running 1.06 and 1.10, walking 1.20 and 1.31; writes `figures/fig_damped_simulation.png`.
 
 What recomputes from the shipped tables and what is quoted: every locomotion statistic (Sections 2.1.1 and 2.1.2) and every group mean and effect magnitude in Sections 2.2 and 2.3 are recomputed here. The inferential statistics of Sections 2.2 and 2.3 (t, F, p, d) are the published values of [25] and [26], whose trial-level data are held by those studies; the two scripts label them as such in their output.
-
-### Figures
-
-`figures/Figures_R1.ipynb` draws every panel of Figures 1 to 7 at its printed size, one panel per cell, from `data/` and the schematic elements in `figures/figure_assets_R1/`. Run it from the `figures/` folder (`jupyter lab Figures_R1.ipynb`). A CONSTANTS cell at the top holds every number quoted in the captions, and a CHECK cell compares the values recomputed from the tables with the manuscript. The notebook writes no files; each figure appears in its cell.
 
 ## Citation
 
