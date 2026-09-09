@@ -4,7 +4,9 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
-Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise**
+Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination**
+
+Manuscript rsif-2026-0781, *Journal of the Royal Society Interface*, revised for resubmission (R1, September 2026). Archived release: Zenodo DOI to be inserted after the v1.1.0 release.
 
 ## Overview
 
@@ -42,7 +44,8 @@ bifurcation-signatures-movement-2026/
 ├── data/                              processed per-subject tables (Tables S1-S7)
 │   ├── README.md                      data source documentation
 │   ├── running_per_subject.csv        SI Table S1 (n = 28)
-│   ├── walking_per_subject.csv        SI Table S2 (n = 29)
+│   ├── walking_per_subject_values.csv SI Table S2, per-subject values (n = 29)
+│   ├── walking_per_subject.csv        SI Table S2, population summary
 │   ├── perception_per_participant.csv SI Table S3 (n = 20)
 │   ├── coordination_baseline.csv      SI Table S4 (Group 1, n = 8)
 │   ├── coordination_heat.csv          SI Table S5 (Group 2, n = 8)
@@ -50,7 +53,10 @@ bifurcation-signatures-movement-2026/
 │   └── walking_sensitivity.csv        SI Table S7
 │
 └── figures/                           figure generation
-    └── README.md                      figure-generation documentation
+    ├── README.md                      figure documentation
+    ├── Figures_R1.ipynb               every panel of Figures 1 to 7, one panel per cell
+    ├── figure_assets_R1/              schematic elements (600 dpi) used by the notebook
+    └── fig_damped_simulation.png      supplementary figure written by 05_damped_simulation.py
 ```
 
 ## Data sources
@@ -61,8 +67,8 @@ All four primary datasets are previously published and openly accessible. This r
 |---|---|---|
 | Running biomechanics, n = 28 | Fukuchi et al. (2017) PeerJ | figshare [10.6084/m9.figshare.4543435.v4](https://doi.org/10.6084/m9.figshare.4543435.v4) |
 | Walking 3D motion capture, n = 29 | Riglet et al. (2024) Scientific Data | figshare [10.6084/m9.figshare.24296217](https://doi.org/10.6084/m9.figshare.24296217) |
-| Haptic perception, n = 20 | Park (2025) ESWA | https://github.com/pcw8531/Dimensional-motor-expertise |
-| Bimanual coordination, n = 16 | Park (2026) JRSI | https://github.com/pcw8531/thermodynamic-motor-control |
+| Haptic perception, n = 20 | Park (2026) Inf. Process. Manag., reference [25] of the manuscript | https://github.com/pcw8531/Dimensional-motor-expertise |
+| Bimanual coordination, n = 16 | Park (2026) J. R. Soc. Interface, reference [26] | Zenodo [10.5281/zenodo.19201270](https://doi.org/10.5281/zenodo.19201270) and https://github.com/pcw8531/thermodynamic-motor-control |
 
 ## Reproduction
 
@@ -95,17 +101,23 @@ python code/04_coordination_pipeline.py   # reproduces Section 2.3 statistics
 python code/05_damped_simulation.py       # reproduces Section 3.2 γ mapping
 ```
 
-For the locomotion pipelines (01 and 02), point the `DATA1` / `DATA2` paths in the script to local copies of the figshare archives. For pipelines 03 and 04, the processed per-subject tables in `data/` are used directly.
+For the locomotion pipelines (01 and 02), point the `DATA1` / `DATA2` paths in the script to local copies of the figshare archives to recompute from raw marker data; without the archives they read the per-subject tables in `data/` (Tables S1 and S2) and reproduce the population statistics from them. Pipelines 03 and 04 read the per-participant tables in `data/` directly.
 
 For a single end-to-end run, open `notebooks/00_master_replication.ipynb` in JupyterLab.
 
 ### Expected outputs
 
-- `01_running_pipeline.py`: R₁ median ≈ 1.62, R₂ median ≈ 1.55, p vs φ = 0.295 (R₁), p vs δ < 0.0001 (both).
-- `02_walking_pipeline.py`: R₁ median ≈ 1.41, R₂ median ≈ 1.26, p vs φ = 0.031 / 0.001, p vs δ < 0.0001.
-- `03_perception_pipeline.py`: novice M = 4.215, expert M = 2.130, t(18) = 15.36, p < .001, d = 6.9.
-- `04_coordination_pipeline.py`: baseline 05:00 M = 5.246, 17:00 M = 4.544. Heat 2 × 2 ANOVA F(1, 7) = 8.234, p = .024. Cold 2 × 2 ANOVA F(1, 7) = 9.123, p = .019.
-- `05_damped_simulation.py`: γ mapping table for the four locomotion ratios, all in [1.06, 1.31].
+- `01_running_pipeline.py`: R₁ median = 1.623, R₂ median = 1.546, p vs φ = 0.295 (R₁) and 0.020 (R₂; 0.022 with φ rounded to 1.618 as in the manuscript), p vs δ < 0.0001 (both).
+- `02_walking_pipeline.py`: R₁ median = 1.409, R₂ median = 1.256, geometric means 1.380 and 1.183, p vs φ = 0.031 / 0.001, p vs δ < 0.0001.
+- `03_perception_pipeline.py`: novice M = 4.215, expert M = 2.130, no participant in the AE gap (2.5, 3.7). Recomputed on the ten per-participant means per group, the t-test gives t(18) = 14.44, d = 6.46; the manuscript reports the values of the source publication [25], computed on the trial-level data of that study, t(18) = 15.36, d = 6.9. The within-group entropy–AE correlations are printed as reported in [25], because the trajectory-entropy values are not part of the shipped table.
+- `04_coordination_pipeline.py`: baseline means 05:00 = 5.246, 12:00 = 5.010, 17:00 = 4.544, 00:00 = 5.200; simple-effect magnitudes heat +0.154 / −0.645 and cold +0.203 / −0.668 z-units at 05:00 / 17:00. The ANOVA F values and simple-effect t values in the manuscript are those of the source publication [26], computed on the trial-level data (six trials per participant and cell); the script prints them as reported values next to the paired t values recomputed on the per-participant cell means.
+- `05_damped_simulation.py`: γ mapping for the four locomotion ratios under κ = 1, running 1.06 and 1.10, walking 1.20 and 1.31; writes `figures/fig_damped_simulation.png`.
+
+What recomputes from the shipped tables and what is quoted: every locomotion statistic (Sections 2.1.1 and 2.1.2) and every group mean and effect magnitude in Sections 2.2 and 2.3 are recomputed here. The inferential statistics of Sections 2.2 and 2.3 (t, F, p, d) are the published values of [25] and [26], whose trial-level data are held by those studies; the two scripts label them as such in their output.
+
+### Figures
+
+`figures/Figures_R1.ipynb` draws every panel of Figures 1 to 7 at its printed size, one panel per cell, from `data/` and the schematic elements in `figures/figure_assets_R1/`. Run it from the `figures/` folder (`jupyter lab Figures_R1.ipynb`). A CONSTANTS cell at the top holds every number quoted in the captions, and a CHECK cell compares the values recomputed from the tables with the manuscript. The notebook writes no files; each figure appears in its cell.
 
 ## Citation
 
@@ -114,10 +126,11 @@ If you use this code or data, please cite the manuscript and this repository.
 ```bibtex
 @article{park2026bifurcation,
   author  = {Park, Chulwook},
-  title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise},
+  title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination},
   year    = {2026},
-  journal = {[Journal Name]},
-  doi     = {[DOI]}
+  journal = {Journal of the Royal Society Interface},
+  note    = {rsif-2026-0781, under revision},
+  doi     = {[DOI on publication]}
 }
 
 @software{park2026bifurcation_code,
@@ -125,7 +138,8 @@ If you use this code or data, please cite the manuscript and this repository.
   title     = {bifurcation-signatures-movement-2026: Reproducibility package},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {[Zenodo DOI to be assigned]},
+  version   = {1.1.0},
+  doi       = {[Zenodo DOI, inserted after the v1.1.0 release]},
   url       = {https://github.com/pcw8531/bifurcation-signatures-movement-2026}
 }
 ```
@@ -139,5 +153,5 @@ A `CITATION.cff` file is included so GitHub displays a "Cite this repository" bu
 
 ## Contact
 
-Chulwook Park · Institute of Sport Science, Seoul National University
+Chulwook Park · BK21 FOUR, Department of Physical Education, Seoul National University · ORCID [0000-0001-8714-5760](https://orcid.org/0000-0001-8714-5760)
 GitHub: [@pcw8531](https://github.com/pcw8531)
