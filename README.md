@@ -6,7 +6,7 @@
 
 Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination**
 
-Manuscript rsif-2026-0781, *Journal of the Royal Society Interface*, revised for resubmission (R1, September 2026). Archived release: Zenodo DOI to be inserted after the v1.1.0 release.
+Revised reproducibility package, September 2026. Archived release: Zenodo DOI to be inserted after the v1.1.0 release.
 
 ## Overview
 
@@ -122,7 +122,6 @@ If you use this code or data, please cite the manuscript and this repository.
   author  = {Park, Chulwook},
   title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination},
   year    = {2026},
-  journal = {Journal of the Royal Society Interface},
   note    = {rsif-2026-0781, under revision},
   doi     = {[DOI on publication]}
 }
