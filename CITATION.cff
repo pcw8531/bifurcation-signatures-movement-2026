@@ -1,14 +1,14 @@
 cff-version: 1.2.0
-title: "bifurcation-signatures-movement-2026: Reproducibility package for Convergent bifurcation signatures in human movement"
+title: "bifurcation-signatures-movement-2026: Reproducibility package for Convergent bifurcation signatures in movement"
 message: >-
-  If you use this software or data, please cite both the software (Zenodo DOI
-  below once assigned) and the associated manuscript.
+  If you use this software or data, please cite the associated manuscript
+  (preferred-citation below) and this repository.
 type: software
 authors:
   - given-names: Chulwook
     family-names: Park
-    affiliation: Institute of Sport Science, Seoul National University
-    orcid: "https://orcid.org/[ORCID to be added]"
+    affiliation: BK21 FOUR, Department of Physical Education, Seoul National University
+    orcid: "https://orcid.org/0000-0001-8714-5760"
 repository-code: "https://github.com/pcw8531/bifurcation-signatures-movement-2026"
 url: "https://github.com/pcw8531/bifurcation-signatures-movement-2026"
 abstract: >-
@@ -29,15 +29,15 @@ keywords:
   - dynamical systems
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
-version: "1.0.2"
-date-released: "2026-05-18"
+version: "1.1.0"
+date-released: "2026-09-09"
 preferred-citation:
   type: article
-  title: "Convergent bifurcation signatures in human movement: a systemic analysis across locomotion, elementary coordination, and perceptual expertise"
+  title: "Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination"
   authors:
     - given-names: Chulwook
       family-names: Park
-      affiliation: Institute of Sport Science, Seoul National University
+      affiliation: BK21 FOUR, Department of Physical Education, Seoul National University
   year: 2026
-  journal: "[Journal name to be added]"
-  doi: "[DOI to be added]"
+  journal: "Journal of the Royal Society Interface"
+  notes: "Manuscript rsif-2026-0781, under revision"
