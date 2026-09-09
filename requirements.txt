@@ -1,21 +1,24 @@
-# Pinned Python dependencies for full reproducibility.
-# Python 3.9 or higher required.
+# Python dependencies. Python 3.11 recommended (3.9 or higher works within the
+# range pins below).
 #
 # Install with: pip install -r requirements.txt
+#
+# The version in the comment of each line is the exact version with which the
+# five pipelines in code/ were last run in full (September 2026).
 
-numpy>=1.24,<2.0
-pandas>=2.0,<3.0
-scipy>=1.10,<2.0
-statsmodels>=0.14,<1.0
-matplotlib>=3.7,<4.0
+numpy>=1.24,<3.0          # verified 2.4.4
+pandas>=2.0,<4.0          # verified 3.0.2
+scipy>=1.10,<2.0          # verified 1.17.1
+statsmodels>=0.14,<1.0    # optional, used by 04_coordination_pipeline.py for the ANOVA table
+matplotlib>=3.7,<4.0      # verified 3.10.9
 
-# Notebook environment (optional but recommended)
+# Notebook environment
 jupyter>=1.0
 jupyterlab>=4.0
 ipywidgets>=8.0
 
-# Plotting and visualization
-seaborn>=0.13
+# Plotting
+seaborn>=0.13             # verified 0.13.2
 
 # File handling
 openpyxl>=3.1
