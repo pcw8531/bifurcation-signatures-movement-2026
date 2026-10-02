@@ -5,9 +5,9 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22671622.svg)](https://doi.org/10.5281/zenodo.22671622)
 
-Data and code for: **Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination**
+Data and code for: **Convergent bifurcation signatures in movement: a logistic-map model tested on open data from locomotion, perceptual expertise, and elementary coordination**
 
-Revised reproducibility package, September 2026. Archived release v1.1.1 at Zenodo: [10.5281/zenodo.22671622](https://doi.org/10.5281/zenodo.22671622).
+Reproducibility package, October 2026. Archived release v1.1.1 at Zenodo: [10.5281/zenodo.22671622](https://doi.org/10.5281/zenodo.22671622).
 
 ## Overview
 
@@ -18,7 +18,7 @@ This repository contains the complete reproducibility package for the manuscript
 - **Perceptual expertise (n = 20)**: bimodal partition of absolute-error means across experts and novices, mapped to a supercritical pitchfork normal form.
 - **Elementary coordination (n = 16)**: bimanual relative-phase Shannon entropy under circadian and thermal modulation, with a 2 × 2 repeated-measures ANOVA and simple-effects decomposition.
 
-A damped extension of the logistic map (Equations 5 to 7 of the manuscript) reconciles the category-specific signatures within a single account.
+A damped extension of the logistic map (Equations 15 to 17 of the manuscript) reconciles the category-specific signatures within a single account.
 
 ## Repository structure
 
@@ -33,11 +33,11 @@ bifurcation-signatures-movement-2026/
 ├── .gitignore                         standard Python ignores
 │
 ├── code/                              standalone Python pipelines
-│   ├── 01_running_pipeline.py         Section S2 of SI, Section 2.1.1 of paper
-│   ├── 02_walking_pipeline.py         Section S3 of SI, Section 2.1.2 of paper
-│   ├── 03_perception_pipeline.py      Section S4 of SI, Section 2.2 of paper
-│   ├── 04_coordination_pipeline.py    Section S5 of SI, Section 2.3 of paper
-│   └── 05_damped_simulation.py        Section S11 of SI, Section 3.2 of paper
+│   ├── 01_running_pipeline.py         Section S2 of SI, Section 3.1.1 of paper
+│   ├── 02_walking_pipeline.py         Section S3 of SI, Section 3.1.2 of paper
+│   ├── 03_perception_pipeline.py      Section S4 of SI, Section 3.2 of paper
+│   ├── 04_coordination_pipeline.py    Section S5 of SI, Section 3.3 of paper
+│   └── 05_damped_simulation.py        Section S11 of SI, Section 4.2 of paper
 │
 ├── notebooks/                         Jupyter master replication
 │   └── 00_master_replication.ipynb    end-to-end run of all four pipelines
@@ -65,7 +65,7 @@ All four primary datasets are previously published and openly accessible. This r
 | Dataset | Reference | Access |
 |---|---|---|
 | Running biomechanics, n = 28 | Fukuchi et al. (2017) PeerJ | figshare [10.6084/m9.figshare.4543435.v4](https://doi.org/10.6084/m9.figshare.4543435.v4) |
-| Walking 3D motion capture, n = 29 | Riglet et al. (2024) Scientific Data | figshare [10.6084/m9.figshare.24296217](https://doi.org/10.6084/m9.figshare.24296217) |
+| Walking 3D motion capture, n = 29 | Riglet et al. (2024) Scientific Data | figshare [10.6084/m9.figshare.c.7056797.v1](https://doi.org/10.6084/m9.figshare.c.7056797.v1) |
 | Haptic perception, n = 20 | Park (2026) Inf. Process. Manag., reference [25] of the manuscript | https://github.com/pcw8531/Dimensional-motor-expertise |
 | Bimanual coordination, n = 16 | Park (2026) J. R. Soc. Interface, reference [26] | Zenodo [10.5281/zenodo.19201270](https://doi.org/10.5281/zenodo.19201270) and https://github.com/pcw8531/thermodynamic-motor-control |
 
@@ -93,11 +93,11 @@ conda activate bifurcation-movement
 Each pipeline is standalone and corresponds to one Section of the manuscript and one Section of the SI:
 
 ```bash
-python code/01_running_pipeline.py        # reproduces Section 2.1.1 statistics
-python code/02_walking_pipeline.py        # reproduces Section 2.1.2 statistics
-python code/03_perception_pipeline.py     # reproduces Section 2.2 statistics
-python code/04_coordination_pipeline.py   # reproduces Section 2.3 statistics
-python code/05_damped_simulation.py       # reproduces Section 3.2 γ mapping
+python code/01_running_pipeline.py        # reproduces Section 3.1.1 statistics
+python code/02_walking_pipeline.py        # reproduces Section 3.1.2 statistics
+python code/03_perception_pipeline.py     # reproduces Section 3.2 statistics
+python code/04_coordination_pipeline.py   # reproduces Section 3.3 statistics
+python code/05_damped_simulation.py       # reproduces Section 4.2 γ mapping
 ```
 
 For the locomotion pipelines (01 and 02), point the `DATA1` / `DATA2` paths in the script to local copies of the figshare archives to recompute from raw marker data; without the archives they read the per-subject tables in `data/` (Tables S1 and S2) and reproduce the population statistics from them. Pipelines 03 and 04 read the per-participant tables in `data/` directly.
@@ -112,7 +112,7 @@ For a single end-to-end run, open `notebooks/00_master_replication.ipynb` in Jup
 - `04_coordination_pipeline.py`: baseline means 05:00 = 5.246, 12:00 = 5.010, 17:00 = 4.544, 00:00 = 5.200; simple-effect magnitudes heat +0.154 / −0.645 and cold +0.203 / −0.668 z-units at 05:00 / 17:00. The ANOVA F values and simple-effect t values in the manuscript are those of the source publication [26], computed on the trial-level data (six trials per participant and cell); the script prints them as reported values next to the paired t values recomputed on the per-participant cell means.
 - `05_damped_simulation.py`: γ mapping for the four locomotion ratios under κ = 1, running 1.06 and 1.10, walking 1.20 and 1.31; writes `figures/fig_damped_simulation.png`.
 
-What recomputes from the shipped tables and what is quoted: every locomotion statistic (Sections 2.1.1 and 2.1.2) and every group mean and effect magnitude in Sections 2.2 and 2.3 are recomputed here. The inferential statistics of Sections 2.2 and 2.3 (t, F, p, d) are the published values of [25] and [26], whose trial-level data are held by those studies; the two scripts label them as such in their output.
+What recomputes from the shipped tables and what is quoted: every locomotion statistic (Sections 3.1.1 and 3.1.2) and every group mean and effect magnitude in Sections 3.2 and 3.3 are recomputed here. The inferential statistics of Sections 3.2 and 3.3 (t, F, p, d) are the published values of [25] and [26], whose trial-level data are held by those studies; the two scripts label them as such in their output.
 
 ## Citation
 
@@ -121,7 +121,7 @@ If you use this code or data, please cite the manuscript and this repository.
 ```bibtex
 @article{park2026bifurcation,
   author  = {Park, Chulwook},
-  title   = {Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination},
+  title   = {Convergent bifurcation signatures in movement: a logistic-map model tested on open data from locomotion, perceptual expertise, and elementary coordination},
   year    = {2026},
   note    = {manuscript under review},
   doi     = {[DOI on publication]}
