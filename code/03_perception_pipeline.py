@@ -1,15 +1,15 @@
 """
 03_perception_pipeline.py
 
-Reproduces Section 2.2 of the manuscript and Section S4 of the SI.
+Reproduces Section 3.2 of the manuscript and Section S4 of the SI.
 
 Perceptual-expertise analysis on the haptic-perception dataset (Park 2026, reference [25]
 of the manuscript).
 
-Computes per-participant absolute error (AE, Equation 13), independent-samples
+Computes per-participant absolute error (AE, Equation 7), independent-samples
 t-test, Cohen's d, Shapiro-Wilk normality, and pre-registered within-group
 strategic-variability criterion via Pearson correlation between trajectory
-Shannon entropy (Equation 14) and AE.
+Shannon entropy (Equation 8) and AE.
 
 Expected output, recomputed from data/perception_per_participant.csv
 (per-participant means, 10 per group):
@@ -33,7 +33,7 @@ PROCESSED = Path(__file__).resolve().parent.parent / "data" / "perception_per_pa
 
 
 def shannon_entropy_axis(values, n_bins=None):
-    """Shannon entropy on a single-axis trajectory deviation array (Equation 14).
+    """Shannon entropy on a single-axis trajectory deviation array (Equation 8).
     Sturges binning, B = ceil(1 + log2(n))."""
     values = np.asarray(values)
     values = values[np.isfinite(values)]
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     gap = df[(df["AE_mean"] > 2.5) & (df["AE_mean"] < 3.7)]
     print(f"\nParticipants in AE gap [2.5, 3.7]: {len(gap)} (expected 0)")
     print(f"This confirms the bimodal partition predicted by the supercritical")
-    print(f"pitchfork bifurcation (Equation 2, manuscript Section 2.2).")
+    print(f"pitchfork bifurcation (Equation 12, manuscript Section 3.2).")
 
     # Within-group correlations (entropy vs AE) - from original publication
     print("\nWithin-group entropy-AE correlations (reported values, source publication [25]):")
