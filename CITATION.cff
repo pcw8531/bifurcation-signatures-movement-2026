@@ -29,9 +29,9 @@ keywords:
   - dynamical systems
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
-version: "1.1.1"
-date-released: "2026-09-09"
-doi: "10.5281/zenodo.22671622"
+version: "1.2.0"
+date-released: "2026-10-02"
+doi: "10.5281/zenodo.22671403"
 preferred-citation:
   type: article
   title: "Convergent bifurcation signatures in movement: a logistic-map model tested on open data from locomotion, perceptual expertise, and elementary coordination"
