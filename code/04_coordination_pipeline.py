@@ -1,14 +1,14 @@
 """
 04_coordination_pipeline.py
 
-Reproduces Section 2.3 of the manuscript and Section S5 of the SI.
+Reproduces Section 3.3 of the manuscript and Section S5 of the SI.
 
 Elementary-coordination analysis on the bimanual-pendulum dataset (Park 2026 JRSI,
 reference [26] of the manuscript; Zenodo doi:10.5281/zenodo.19201270).
 
-Computes per-participant Shannon entropy H(phi) (Equation 15) across four
+Computes per-participant Shannon entropy H(phi) (Equation 9) across four
 circadian phases for Group 1 (Experiment I, n = 8) and 2 x 2 repeated-measures
-ANOVA (Equation 16) with simple-effects decomposition (Equation 17) under
+ANOVA (Equation 10) with simple-effects decomposition (Equation 11) under
 heat and cold perturbation for Group 2 (Experiments II and III, n = 8).
 
 Expected output, recomputed from the shipped per-participant tables
@@ -47,7 +47,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 
 def shannon_entropy_phi(phi, n_bins=20):
-    """Shannon entropy of relative-phase distribution (Equation 15).
+    """Shannon entropy of relative-phase distribution (Equation 9).
     Bins span [-pi, pi]."""
     counts, _ = np.histogram(phi, bins=n_bins, range=(-np.pi, np.pi))
     p = counts / counts.sum()
@@ -99,7 +99,7 @@ if __name__ == "__main__":
         print("  F(1,7) perturb   = 1.301, p = 0.291, eta_p^2 = 0.16")
         print("  F(1,7) interact  = 3.453, p = 0.068, eta_p^2 = 0.33")
 
-    # Simple effects at 17:00 under heat (Equation 17)
+    # Simple effects at 17:00 under heat (Equation 11)
     t_h17, p_h17 = stats.ttest_rel(heat["heat_1700"], heat["normal_1700"])
     delta_h17 = heat["heat_1700"].mean() - heat["normal_1700"].mean()
     print(f"\nHeat simple effect at 17:00: delta = {delta_h17:+.3f}, "
