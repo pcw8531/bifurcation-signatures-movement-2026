@@ -1,15 +1,15 @@
 """
 02_walking_pipeline.py
 
-Reproduces Section 2.1.2 of the manuscript and Section S3 of the SI.
+Reproduces Section 3.1.2 of the manuscript and Section S3 of the SI.
 
 Population-scale walking variance-amplification analysis on the Riglet
-walking dataset (Riglet et al. 2024, Sci. Data, figshare 10.6084/m9.figshare.24296217).
+walking dataset (Riglet et al. 2024, Sci. Data, figshare 10.6084/m9.figshare.c.7056797.v1).
 
 The state variable is the vertical pelvic-marker excursion (PELVISO_Z) per
 gait cycle, bracketed left-foot-strike to left-foot-strike. Consecutive
-variance ratios (Equation 9) are tested at the population level under the
-Wilcoxon signed-rank test (Equation 10) against R = 1, phi, delta.
+variance ratios (Equation 3) are tested at the population level under the
+Wilcoxon signed-rank test (Equation 4) against R = 1, phi, delta.
 
 Expected output (recomputed from data/walking_per_subject_values.csv, n = 29):
     R1 median = 1.409, geometric mean = 1.380, vs phi p = 0.031, vs delta p < 0.0001
@@ -79,7 +79,7 @@ def parse_riglet_csv(filepath, channel="PELVISO", axis="Z"):
 
 
 def cycle_pp_variance(parsed):
-    """Per-cycle peak-to-peak excursion, variance across cycles (Equation 8)."""
+    """Per-cycle peak-to-peak excursion, variance across cycles (Equation 2)."""
     sig = parsed["signal"]
     strikes = parsed["events"].get("Left_Foot_Strike", [])
     if len(strikes) < 11:
