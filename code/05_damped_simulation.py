@@ -1,14 +1,14 @@
 """
 05_damped_simulation.py
 
-Reproduces Section 3.2 of the manuscript and Section S11 of the SI.
+Reproduces Section 4.2 of the manuscript and Section S11 of the SI.
 
 Damped logistic-map simulation linking the empirical consecutive-ratio
-observations to bifurcation-theoretic predictions through Equations 5 to 7.
+observations to bifurcation-theoretic predictions through Equations 15 to 17.
 
-    Equation 5: x_{n+1} = r * x_n * (1 - x_n) - gamma * x_n
-    Equation 6: R(gamma) ~ delta * exp(-kappa * gamma)
-    Equation 7: gamma_empirical = -(1/kappa) * ln(R_obs / delta)
+    Equation 15: x_{n+1} = r * x_n * (1 - x_n) - gamma * x_n
+    Equation 16: R(gamma) ~ delta * exp(-kappa * gamma)
+    Equation 17: gamma_empirical = -(1/kappa) * ln(R_obs / delta)
 
 Expected gamma mapping (kappa = 1):
     Running R1 = 1.62 -> gamma = 1.057
@@ -28,17 +28,17 @@ KAPPA = 1.0   # minimal-model convention
 
 
 def damped_logistic(x, r, gamma):
-    """Equation 5 of main manuscript."""
+    """Equation 15 of main manuscript."""
     return r * x * (1.0 - x) - gamma * x
 
 
 def R_of_gamma(gamma, delta=DELTA, kappa=KAPPA):
-    """Equation 6 of main manuscript."""
+    """Equation 16 of main manuscript."""
     return delta * np.exp(-kappa * gamma)
 
 
 def gamma_of_R(R_obs, delta=DELTA, kappa=KAPPA):
-    """Equation 7 of main manuscript."""
+    """Equation 17 of main manuscript."""
     return -(1.0 / kappa) * np.log(R_obs / delta)
 
 
