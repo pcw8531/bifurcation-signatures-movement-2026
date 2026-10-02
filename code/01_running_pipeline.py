@@ -1,19 +1,19 @@
 """
 01_running_pipeline.py
 
-Reproduces Section 2.1.1 of the manuscript and Section S2 of the SI.
+Reproduces Section 3.1.1 of the manuscript and Section S2 of the SI.
 
 Population-scale running variance-amplification analysis on the Fukuchi
 running dataset (Fukuchi et al. 2017, PeerJ, figshare 10.6084/m9.figshare.4543435.v4).
 
 The state variable is the antisymmetric pelvic-obliquity signal
     x(t) = L.ASIS_Y(t) - R.ASIS_Y(t)
-(Equation 11 of the main manuscript), with the cycle-bracketed variance of
-Equation 8. Consecutive variance ratios
+(Equation 5 of the main manuscript), with the cycle-bracketed variance of
+Equation 2. Consecutive variance ratios
     R1 = var(3.5) / var(2.5)
     R2 = var(4.5) / var(3.5)
-(Equation 9) are tested at the population level against three reference scales
-under the Wilcoxon signed-rank test on log-ratios (Equation 10):
+(Equation 3) are tested at the population level against three reference scales
+under the Wilcoxon signed-rank test on log-ratios (Equation 4):
     null R = 1, R = phi ~ 1.618, R = delta ~ 4.669.
 
 Expected output (recomputed from data/running_per_subject.csv):
@@ -37,7 +37,7 @@ PROCESSED = Path(__file__).resolve().parent.parent / "data" / "running_per_subje
 PHI = (1 + np.sqrt(5)) / 2            # ~ 1.6180
 DELTA = 4.6692016091029               # Feigenbaum constant
 
-# === Per-subject variance computation (Equation 8) ===
+# === Per-subject variance computation (Equation 2) ===
 def running_pelvis_variance(filepath):
     """Compute variance of the antisymmetric pelvic-obliquity signal."""
     df = pd.read_csv(filepath, sep="\t")
@@ -68,7 +68,7 @@ def run_from_raw(data_dir):
 
 
 def population_stats(df):
-    """Population-level Wilcoxon signed-rank inference on log-ratios (Equation 10)."""
+    """Population-level Wilcoxon signed-rank inference on log-ratios (Equation 4)."""
     out = {}
     for ratio in ["R1", "R2"]:
         vals = df[ratio].dropna().values
