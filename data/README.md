@@ -7,7 +7,7 @@ This folder contains the processed per-subject and per-participant data tables t
 | File | SI Table | Source | n |
 |---|---|---|---|
 | `running_per_subject.csv` | S1 | Fukuchi et al. 2017 PeerJ, figshare 10.6084/m9.figshare.4543435.v4 | 28 |
-| `walking_per_subject_values.csv` | S2 (per-subject values) | Riglet et al. 2024 Sci. Data, figshare 10.6084/m9.figshare.24296217, computed by 02_walking_pipeline.py | 29 |
+| `walking_per_subject_values.csv` | S2 (per-subject values) | Riglet et al. 2024 Sci. Data, figshare 10.6084/m9.figshare.c.7056797.v1, computed by 02_walking_pipeline.py | 29 |
 | `walking_per_subject.csv` | S2 (population summary) | as above | 29 |
 | `perception_per_participant.csv` | S3 | Park 2026 Inf. Process. Manag. (reference [25]), Appendix D | 20 |
 | `coordination_baseline.csv` | S4 | Park 2026 J. R. Soc. Interface (reference [26]), Table S1a | 8 (Group 1) |
