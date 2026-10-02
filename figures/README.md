@@ -1,6 +1,6 @@
 # Figures
 
-The seven main-text figures are provided with the manuscript. Each panel is drawn from the tables in `../data/` (Figures 2 to 4) or from the constants reported in Sections 2 and 3 of the manuscript (Figures 1, 5 and 6); Figure 7 is a schematic of the data sources. The data table behind each panel is identified in `../data/README.md`, and the schematic and reconstructed elements are stated in the figure captions and in Section 4.2 of the manuscript.
+The six main-text figures are provided with the manuscript. Each panel is drawn from the tables in `../data/` (Figures 2 to 4) or from the constants reported in Sections 3 and 4 of the manuscript (Figures 1, 5 and 6). Figure S1 of the supplementary material is a schematic of the data sources. The data table behind each panel is identified in `../data/README.md`, and the schematic and reconstructed elements are stated in the figure captions and in Appendix A of the manuscript.
 
 ## Generated figure
 
