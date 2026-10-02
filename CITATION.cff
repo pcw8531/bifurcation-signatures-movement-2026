@@ -16,7 +16,7 @@ abstract: >-
   per-subject data tables for a systemic variance-modulation analysis of
   bifurcation-precursor signatures across locomotion, perceptual expertise,
   and elementary coordination. The package reproduces all numerical
-  results reported in Section 2 of the associated manuscript across four
+  results reported in Section 3 of the associated manuscript across four
   independent published datasets.
 keywords:
   - bifurcation theory
@@ -34,7 +34,7 @@ date-released: "2026-09-09"
 doi: "10.5281/zenodo.22671622"
 preferred-citation:
   type: article
-  title: "Convergent bifurcation signatures in movement: a systemic analysis across locomotion, perceptual expertise, and elementary coordination"
+  title: "Convergent bifurcation signatures in movement: a logistic-map model tested on open data from locomotion, perceptual expertise, and elementary coordination"
   authors:
     - given-names: Chulwook
       family-names: Park
